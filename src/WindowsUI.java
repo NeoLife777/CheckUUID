@@ -51,10 +51,18 @@ public class WindowsUI extends JFrame {
 
 
         button.addActionListener(e -> {
-            label.setText(" ");
-            //label.setOpaque(false);
             Check check = new Check();
-            check.isValidUUID(textField.getText());
+            if (check.isValidUUID(textField.getText())) {
+                label.setText("Валидно");
+                label.setOpaque(true);
+                label.setForeground(Color.BLACK);
+                label.setBackground(Color.GREEN);
+            } else {
+                label.setText("Не валидно");
+                label.setOpaque(true);
+                label.setForeground(Color.BLACK);
+                label.setBackground(Color.RED);
+            }
         });
 
         // System.out.println("Текст: " + textField.getText());
